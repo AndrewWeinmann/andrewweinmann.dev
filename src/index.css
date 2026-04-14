@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+	--color-bg: #0f0f0f;
+	--color-surface: #1a1a1a;
+	--color-border: #2a2a2a;
+	--color-muted: #737373;
+	--color-text: #d4d4d4;
+	--color-heading: #fafafa;
+	--color-accent: #a3e635;
+	--color-accent-hover: #84cc16;
+
+	--font-sans: "Space Grotesk", system-ui, sans-serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+@layer base {
+	html {
+		background-color: var(--color-bg);
+		color: var(--color-text);
+		font-family: var(--font-mono);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		background-image: radial-gradient(circle, #ffffff08 1px, transparent 1px);
+		background-size: 24px 24px;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-sans);
+		color: var(--color-heading);
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+@layer utilities {
+	.animate-fade-up {
+		animation: fade-up 0.4s ease both;
+	}
+
+	.animate-fade-up-1 {
+		animation: fade-up 0.4s ease 0.05s both;
+	}
+
+	.animate-fade-up-2 {
+		animation: fade-up 0.4s ease 0.15s both;
+	}
+
+	.animate-fade-up-3 {
+		animation: fade-up 0.4s ease 0.25s both;
+	}
+
+	.cursor-blink::after {
+		content: "_";
+		color: var(--color-accent);
+		animation: blink 1s step-end infinite;
+		margin-left: 2px;
+	}
+}

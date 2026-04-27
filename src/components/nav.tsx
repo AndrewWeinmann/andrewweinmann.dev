@@ -23,7 +23,10 @@ export default function Nav() {
 						Who I Am
 					</NavLink>
 					<NavLink to="/uses" className={navLinkClass}>
-						Uses
+						What I Use
+					</NavLink>
+					<NavLink to="/photos" className={navLinkClass}>
+						Dog Photos
 					</NavLink>
 				</div>
 			</nav>

@@ -21,14 +21,21 @@ describe("Nav", () => {
 
 	it("renders the About link", () => {
 		renderNav();
-		const link = screen.getByRole("link", { name: "About" });
+		const link = screen.getByRole("link", { name: "Who I Am" });
 		expect(link).toBeInTheDocument();
 		expect(link).toHaveAttribute("href", "/about");
 	});
 
+	it("renders the Photos link", () => {
+		renderNav();
+		const link = screen.getByRole("link", { name: "Dog Photos" });
+		expect(link).toBeInTheDocument();
+		expect(link).toHaveAttribute("href", "/photos");
+	});
+
 	it("renders the Uses link", () => {
 		renderNav();
-		const link = screen.getByRole("link", { name: "Uses" });
+		const link = screen.getByRole("link", { name: "What I Use" });
 		expect(link).toBeInTheDocument();
 		expect(link).toHaveAttribute("href", "/uses");
 	});

@@ -7,6 +7,7 @@ import "./index.css";
 import Layout from "./components/layout.tsx";
 import About from "./pages/about.tsx";
 import Home from "./pages/home.tsx";
+import Photos from "./pages/photos.tsx";
 import Uses from "./pages/uses.tsx";
 
 const router = createBrowserRouter([
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
 		children: [
 			{ index: true, element: <Home /> },
 			{ path: "about", element: <About /> },
+			{ path: "photos", element: <Photos /> },
 			{ path: "uses", element: <Uses /> },
 		],
 	},

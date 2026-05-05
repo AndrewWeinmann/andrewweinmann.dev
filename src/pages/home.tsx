@@ -2,11 +2,12 @@ import { Link } from "react-router";
 import Avatar from "../components/avatar.tsx";
 
 const currently = [
-	{ label: "working on", value: "Palworld utilities" },
+	{ label: "working on", value: "building out a home server stack" },
+	{ label: "developing", value: "family utilities" },
 	{ label: "watching", value: "Guardians baseball" },
 	{ label: "playing", value: "Diablo IV" },
-	{ label: "outside", value: "disc golf" },
 	{ label: "learning", value: "AI coding techniques" },
+	{ label: "enjoying outdoors", value: "disc golf" },
 ];
 
 export default function Home() {
@@ -20,6 +21,9 @@ export default function Home() {
 					<p className="text-text leading-relaxed max-w-prose">
 						I'm a husband and dog dad, a software developer for work and fun, a warm weather outdoor
 						activity enjoyer, and a sports fan — baseball generally and Cleveland in particular.
+					</p>
+					<p className="text-text leading-relaxed max-w-prose">
+						This site is a snapshot of what I'm working on and what I actually use.
 					</p>
 					<p className="text-text leading-relaxed max-w-prose">
 						More{" "}

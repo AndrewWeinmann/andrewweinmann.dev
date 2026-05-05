@@ -25,6 +25,7 @@ node_modules/
 
 # Build output
 dist/
+.vite/
 tsconfig.tsbuildinfo
 
 # Test output & coverage

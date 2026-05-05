@@ -7,6 +7,8 @@ Personal portfolio site (andrewweinmann.dev) built with Vite + React + TypeScrip
 ## Commands
 
 ```bash
+npm install          # Install dependencies
+npm run setup        # Install Playwright browser (run once after npm install)
 npm run dev          # Start dev server (port 5173)
 npm run build        # TypeScript check + Vite build (output: dist/)
 npm run check        # Biome lint + format with auto-fix
@@ -14,7 +16,8 @@ npm run lint         # Biome lint (read-only)
 npm run typecheck    # TypeScript type check only
 npm test             # Vitest unit tests (single run)
 npm run test:watch   # Vitest in watch mode
-npm run test:e2e     # Playwright E2E tests (browser auto-installed; system deps: sudo npx playwright install-deps chromium)
+npm run test:e2e     # Playwright E2E tests (system deps: sudo npx playwright install-deps chromium)
+npm run test:e2e:ui  # Playwright E2E tests with UI
 ```
 
 To run a single unit test file:

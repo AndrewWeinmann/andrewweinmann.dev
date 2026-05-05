@@ -3,53 +3,45 @@
 [![CI](https://github.com/AndrewWeinmann/andrewweinmann.dev/actions/workflows/ci.yml/badge.svg)](https://github.com/AndrewWeinmann/andrewweinmann.dev/actions/workflows/ci.yml)
 [![Coverage](https://codecov.io/gh/AndrewWeinmann/andrewweinmann.dev/branch/main/graph/badge.svg)](https://codecov.io/gh/AndrewWeinmann/andrewweinmann.dev)
 
-Source for <https://andrewweinmann.dev/>.
+Source for my personal site: <https://andrewweinmann.dev/>.
 
-Vite + React + TypeScript + Tailwind CSS v4. Deployed to Cloudflare Workers.
+## Purpose
+
+A central hub for:
+
+- what I'm working on
+- tools I use
+- personal projects
+
+## Stack
+
+- [React 19](https://react.dev) + [React Router 7](https://reactrouter.com)
+- [TypeScript](https://www.typescriptlang.org)
+- [Vite](https://vite.dev)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Biome](https://biomejs.dev) — lint + format
+- [Vitest](https://vitest.dev) — unit tests
+- [Playwright](https://playwright.dev) — E2E tests
+- Deployed via [Cloudflare Workers](https://workers.cloudflare.com)
 
 ## Dev
 
 ```bash
 npm install
-npm run dev
+npm run setup    # install Playwright browser (once)
+npm run dev      # http://localhost:5173
 ```
-
-To run E2E tests locally, install the Playwright browser after your first `npm install`:
 
 ```bash
-npm run setup
+npm run build    # tsc + vite build → dist/
 ```
-
-## Build
 
 ```bash
-npm run build
+npm run check    # lint + format
+npm test         # unit tests
+npm run test:e2e # E2E (needs: sudo npx playwright install-deps chromium)
 ```
 
-Output goes to `dist/`. Then deploy:
+## Notes
 
-```bash
-npx wrangler deploy
-```
-
-SPA routing is handled by `not_found_handling: single-page-application` in `wrangler.jsonc`.
-
-## Lint & format
-
-```bash
-npm run check        # Biome lint + format (auto-fix)
-npm run typecheck    # TypeScript check
-```
-
-## Tests
-
-```bash
-npm test             # Vitest unit tests
-npm run test:e2e     # Playwright integration tests
-```
-
-Playwright requires system browser dependencies on first run:
-
-```bash
-sudo npx playwright install-deps chromium
-```
+Simple by design. Not a portfolio; just a representation of what I'm doing.

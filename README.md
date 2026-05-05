@@ -3,11 +3,9 @@
 [![CI](https://github.com/AndrewWeinmann/andrewweinmann.dev/actions/workflows/ci.yml/badge.svg)](https://github.com/AndrewWeinmann/andrewweinmann.dev/actions/workflows/ci.yml)
 [![Coverage](https://codecov.io/gh/AndrewWeinmann/andrewweinmann.dev/branch/main/graph/badge.svg)](https://codecov.io/gh/AndrewWeinmann/andrewweinmann.dev)
 
-Source for my personal site: <https://andrewweinmann.dev/>.
-
 ## Purpose
 
-A central hub for:
+I wanted one durable place that connects my projects, tools, and personal interests without turning it into a resume. A central hub for:
 
 - what I'm working on
 - tools I use

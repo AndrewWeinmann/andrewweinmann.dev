@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash .claude/skills/monthly-content-update/scripts/create-branch.sh)"
+    ]
+  }
+}

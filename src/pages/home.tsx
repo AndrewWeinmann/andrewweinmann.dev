@@ -5,9 +5,9 @@ const currently = [
 	{ label: "working on", value: "building out a home server stack" },
 	{ label: "developing", value: "family utilities" },
 	{ label: "watching", value: "Guardians baseball" },
-	{ label: "playing", value: "Diablo IV" },
+	{ label: "playing", value: "Diablo IV, Slay the Spire II, and Factorio" },
 	{ label: "learning", value: "AI coding techniques" },
-	{ label: "enjoying outdoors", value: "disc golf" },
+	{ label: "enjoying outdoors", value: "disc golf and softball" },
 ];
 
 export default function Home() {

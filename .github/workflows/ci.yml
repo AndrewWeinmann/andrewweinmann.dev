@@ -31,7 +31,7 @@ jobs:
       - name: Check Playwright version matches CI image
         run: |
           EXPECTED=$(node -e "const p = require('./package-lock.json'); console.log(p.packages['node_modules/@playwright/test'].version)")
-          ACTUAL=$(grep -o 'playwright:v[0-9.]*' .github/workflows/ci.yml | head -1 | sed 's/playwright:v//')
+          ACTUAL=$(grep -Eo 'image: mcr\.microsoft\.com/playwright:v[0-9.]+-jammy' .github/workflows/ci.yml | head -1 | sed -E 's/.*playwright:v([0-9.]+)-jammy/\1/')
           if [ -z "$ACTUAL" ]; then
             echo "No Playwright Docker image in ci.yml — skipping check"
             exit 0
@@ -153,7 +153,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     container:
-      image: mcr.microsoft.com/playwright:v1.59.1-jammy
+      image: mcr.microsoft.com/playwright:v1.60.0-jammy
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2

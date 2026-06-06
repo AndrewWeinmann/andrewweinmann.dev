@@ -16,6 +16,33 @@ permissions:
   id-token: write  # Required for Codecov OIDC upload
 
 jobs:
+  playwright-version-sync:
+    name: Playwright Version Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+
+      - name: Check Playwright version matches CI image
+        run: |
+          EXPECTED=$(node -e "const p = require('./package-lock.json'); console.log(p.packages['node_modules/@playwright/test'].version)")
+          ACTUAL=$(grep -o 'playwright:v[0-9.]*' .github/workflows/ci.yml | head -1 | sed 's/playwright:v//')
+          if [ -z "$ACTUAL" ]; then
+            echo "No Playwright Docker image in ci.yml — skipping check"
+            exit 0
+          fi
+          if [ "$EXPECTED" != "$ACTUAL" ]; then
+            echo "Version mismatch: @playwright/test is $EXPECTED but ci.yml uses $ACTUAL"
+            echo "Update container.image in .github/workflows/ci.yml to: mcr.microsoft.com/playwright:v${EXPECTED}-jammy"
+            exit 1
+          fi
+          echo "In sync: $EXPECTED"
+
   lint:
     name: Lint
     runs-on: ubuntu-latest

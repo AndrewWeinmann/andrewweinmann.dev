@@ -5,7 +5,7 @@ const currently = [
 	{ label: "working on", value: "building out a home server stack" },
 	{ label: "developing", value: "family utilities" },
 	{ label: "watching", value: "Guardians baseball" },
-	{ label: "playing", value: "Diablo IV, Slay the Spire II, and Factorio" },
+	{ label: "playing", value: "Deep Rock Galactic: Survivor, Slay the Spire II, and Factorio" },
 	{ label: "learning", value: "AI coding techniques" },
 	{ label: "enjoying outdoors", value: "disc golf and softball" },
 ];

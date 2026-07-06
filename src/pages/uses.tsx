@@ -89,6 +89,11 @@ const software: UsesItem[] = [
 		href: "https://claude.com/product/claude-code",
 	},
 	{
+		name: "Codex",
+		description: "OpenAI's coding agent, a second take on implementation and code review.",
+		href: "https://github.com/openai/codex",
+	},
+	{
 		name: "Bitwarden",
 		description: "Password manager with cross-platform support.",
 		href: "https://bitwarden.com/",

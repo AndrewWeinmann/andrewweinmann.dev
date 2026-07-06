@@ -44,7 +44,7 @@ export default function Layout() {
 						>
 							<LinkedInIcon />
 						</ExternalLink>
-						<span>Updated June 2026</span>
+						<span>Updated July 2026</span>
 					</div>
 					<span>Made in Wisconsin. Dog approved.</span>
 				</div>

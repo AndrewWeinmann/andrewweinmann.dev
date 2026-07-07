@@ -1,0 +1,33 @@
+name: Dependabot Auto Merge
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  enable-auto-merge:
+    name: Enable auto-merge for Dependabot PRs
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.repository == 'AndrewWeinmann/andrewweinmann.dev'
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@21025c705c08248db411dc16f3619e6b5f9ea21a # v2.5.0
+        with:
+          github-token: ${{ github.token }}
+
+      # Merge completion is gated by the main ruleset's required status checks
+      # (Lint, Type Check, Unit Tests, Build, E2E Tests, Playwright Version Sync,
+      # CodeQL) — enabling auto-merge here never bypasses CI.
+      - name: Enable auto-merge for non-major updates
+        if: steps.metadata.outputs.dependency-group == 'non-major'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --squash "$PR_URL"

@@ -6,20 +6,17 @@ updates:
       interval: weekly
       day: friday
     open-pull-requests-limit: 10
+    assignees:
+      - "AndrewWeinmann"
     cooldown:
       default-days: 5
     groups:
-      react:
+      non-major:
         patterns:
-          - "react"
-          - "react-dom"
-          - "@types/react"
-          - "@types/react-dom"
-      dev-dependencies:
-        dependency-type: development
-        exclude-patterns:
-          - "@types/react"
-          - "@types/react-dom"
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
   - package-ecosystem: github-actions
     directory: /
@@ -27,10 +24,14 @@ updates:
       interval: weekly
       day: friday
     open-pull-requests-limit: 10
+    assignees:
+      - "AndrewWeinmann"
     cooldown:
       default-days: 5
     groups:
-      github-actions:
+      non-major:
         patterns:
           - "*"
-
+        update-types:
+          - "minor"
+          - "patch"

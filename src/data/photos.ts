@@ -35,4 +35,9 @@ export const photos: Photo[] = [
 	{ src: "/photos/Dog Up Close.jpg", alt: "Dog up close", caption: "Curious about the camera" },
 	{ src: "/photos/Dog on Side.jpg", alt: "Dog laying on its side", caption: "Why, hello there!" },
 	{ src: "/photos/Dog Upside Down.jpg", alt: "Dog upside down", caption: "Always playful" },
+	{
+		src: "/photos/Dog on Walk.jpg",
+		alt: "Dog walking on a leash outside",
+		caption: "Always on the hunt for new smells",
+	},
 ];

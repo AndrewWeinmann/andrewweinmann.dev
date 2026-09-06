@@ -23,10 +23,11 @@ ready for review before pushing.
 | `src/pages/about.tsx` | Background or Interests sections — rarely changes |
 | `src/pages/uses.tsx` | Hardware / Software / Services lists |
 | `src/components/layout.tsx` | Footer "Updated Month YYYY" date |
+| `src/data/photos.ts` + `public/photos/` | Dog photo gallery — entries and image files |
 
 ## Step 1: Read current content
 
-Before starting the interview, read all four files so your questions are grounded in what's
+Before starting the interview, read all five files so your questions are grounded in what's
 actually there. Note anything that looks stale or that the user might want to revisit.
 
 ## Step 2: Check for an existing update branch
@@ -65,6 +66,12 @@ to make the edits.
 **About page** (rarely needs touching — ask only if something seems stale):
 4. "Anything in your background or interests section feel out of date?"
 
+**Dog photos** (ask every time — low effort, easy to forget):
+5. "Any new dog photos you want added to the gallery?"
+
+If yes, get the file path(s) on disk (or ask the user to provide them) and a short caption for
+each — Claude cannot generate real photos, so don't proceed on this item without an actual file.
+
 After the last answer, briefly confirm your understanding before writing — e.g., "Got it — I'll
 update the currently list and add the new keyboard to uses. Anything else?"
 
@@ -92,7 +99,11 @@ Apply the changes the user described. A few rules:
 - **Footer date**: Update the `<span>Updated Month YYYY</span>` in `src/components/layout.tsx`
   to the current month and year (e.g., `Updated June 2026`). Always do this — it reflects when
   the content was last reviewed, not just when the code changed.
-- Don't touch anything outside the four content files unless the user asked you to.
+- **Dog photos**: Copy each provided image into `public/photos/` using the existing
+  `Dog <Description>.jpg` naming pattern, then add a matching `{ src, alt, caption }` entry to
+  `src/data/photos.ts`. Match the tone of existing captions (short, warm, a little dry) — use
+  the user's own description if given rather than inventing one.
+- Don't touch anything outside the content files listed above unless the user asked you to.
 
 After editing, run:
 
@@ -104,10 +115,12 @@ Fix any issues before committing.
 
 ## Step 6: Commit
 
-Stage only the files you changed and commit:
+Stage only the files you changed and commit (include any new files under `public/photos/` and
+`src/data/photos.ts` if photos were added):
 
 ```bash
-git add src/pages/home.tsx src/pages/about.tsx src/pages/uses.tsx src/components/layout.tsx
+git add src/pages/home.tsx src/pages/about.tsx src/pages/uses.tsx src/components/layout.tsx \
+  src/data/photos.ts public/photos/
 git commit -m "content: monthly update $(date +%Y-%m)
 
 <one-line summary of main changes>"

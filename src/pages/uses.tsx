@@ -32,7 +32,7 @@ function UsesSection({ title, items }: UsesSectionProps) {
 							) : (
 								<span className="font-medium text-heading">{item.name}</span>
 							)}
-							{item.description && <span className="text-muted"> — {item.description}</span>}
+							{item.description ? <span className="text-muted"> — {item.description}</span> : null}
 						</span>
 					</li>
 				))}

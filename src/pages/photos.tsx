@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
 import { type Photo, photos } from "../data/photos.ts";
 
 interface LightboxNavButtonProps {
@@ -89,7 +89,7 @@ function Lightbox({ photos, index, onClose, onPrev, onNext }: LightboxProps) {
 
 			<div className="max-w-4xl max-h-[90vh] mx-16 flex flex-col items-center gap-3">
 				<img src={photo.src} alt={photo.alt} className="max-w-full max-h-[80vh] object-contain" />
-				{photo.caption && <p className="text-sm text-muted text-center">{photo.caption}</p>}
+				{photo.caption ? <p className="text-sm text-muted text-center">{photo.caption}</p> : null}
 			</div>
 
 			<LightboxNavButton direction="next" onClick={onNext} />
@@ -120,6 +120,11 @@ export default function Photos() {
 		setSelectedIndex((i) => ((i ?? 0) + 1) % photos.length);
 	}, []);
 
+	const handleSelect = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+		const idx = Number(e.currentTarget.dataset.index);
+		setSelectedIndex(idx);
+	}, []);
+
 	return (
 		<div className="space-y-12">
 			<h1 className="text-4xl font-bold tracking-tight">Photos</h1>
@@ -132,8 +137,9 @@ export default function Photos() {
 						<button
 							key={photo.src}
 							type="button"
+							data-index={i}
 							className="break-inside-avoid mb-3 cursor-pointer group overflow-hidden rounded-sm text-left w-full block"
-							onClick={() => setSelectedIndex(i)}
+							onClick={handleSelect}
 						>
 							<img
 								src={photo.src}
@@ -141,7 +147,7 @@ export default function Photos() {
 								className="w-full block transition-opacity group-hover:opacity-80"
 								loading="lazy"
 							/>
-							{photo.caption && <p className="text-xs text-muted mt-1">{photo.caption}</p>}
+							{photo.caption ? <p className="text-xs text-muted mt-1">{photo.caption}</p> : null}
 						</button>
 					))}
 				</div>

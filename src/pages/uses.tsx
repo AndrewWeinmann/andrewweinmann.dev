@@ -1,6 +1,6 @@
 import ExternalLink from "../components/external-link.tsx";
 
-// cspell:ignore Lemokey ultrawide Arctis Bitwarden Jellyfin
+// cspell:ignore Lemokey ultrawide Arctis Bitwarden Jellyfin Portainer
 
 interface UsesItem {
 	name: string;
@@ -89,9 +89,9 @@ const software: UsesItem[] = [
 		href: "https://claude.com/product/claude-code",
 	},
 	{
-		name: "Codex",
-		description: "OpenAI's coding agent, a second take on implementation and code review.",
-		href: "https://github.com/openai/codex",
+		name: "GitHub Copilot",
+		description: "AI pair programmer, a second take on implementation and code review.",
+		href: "https://github.com/features/copilot",
 	},
 	{
 		name: "Bitwarden",
@@ -125,6 +125,11 @@ const services: UsesItem[] = [
 		name: "Tailscale",
 		description: "Mesh VPN for remote access to my home network.",
 		href: "https://tailscale.com/",
+	},
+	{
+		name: "Portainer",
+		description: "Container management for the home server stack.",
+		href: "https://www.portainer.io/",
 	},
 	{
 		name: "Jellyfin",

@@ -2,13 +2,12 @@ import { Link } from "react-router";
 import Avatar from "../components/avatar.tsx";
 
 const currently = [
-	{ label: "working on", value: "building out a home server stack" },
+	{ label: "working on", value: "expanding my home server stack" },
 	{ label: "developing", value: "family utilities" },
-	{ label: "watching", value: "Guardians baseball" },
+	{ label: "watching", value: "Ohio State football and Cavs basketball" },
 	{ label: "reading", value: "Dungeon Crawler Carl series" },
-	{ label: "playing", value: "Palworld, Slay the Spire II, and Factorio" },
+	{ label: "playing", value: "Palworld, Slay the Spire II, Factorio, and Satisfactory" },
 	{ label: "learning", value: "AI coding techniques" },
-	{ label: "enjoying outdoors", value: "disc golf and biking" },
 ];
 
 export default function Home() {

@@ -40,4 +40,9 @@ export const photos: Photo[] = [
 		alt: "Dog walking on a leash outside",
 		caption: "Always on the hunt for new smells",
 	},
+	{
+		src: "/photos/Dog on Bed.jpg",
+		alt: "Dog sleeping half off his dog bed",
+		caption: "Beds are hard to figure out sometimes",
+	},
 ];

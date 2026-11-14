@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
+import { type MouseEvent, useCallback, useEffect, useRef, useState } from "react";
 import { type Photo, photos } from "../data/photos.ts";
 
 interface LightboxNavButtonProps {
